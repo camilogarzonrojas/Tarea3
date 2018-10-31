@@ -54,3 +54,14 @@ ax.plot(frecuencias, modulo)
 ax.set_xlabel(['Espectro de frecuencias'])
 ax.set_ylabel(['Modulo'])
 fig.savefig('GarzonCamilo_TF.pdf')
+
+###Quinta parte###
+#Se encuentran los indices de los dos primeros picos
+i_max = np.argmax(modulo)
+print("La frecuencia principal se da en ", frecuencias[i_max])
+copia=modulo
+copia[i_max]=0
+i_max2=np.argmax(copia)
+copia[i_max2]=0
+i_max2=np.argmax(copia)
+print("La segunda frecuencia principal se da en ", abs(frecuencias[i_max2]))
