@@ -154,4 +154,12 @@ y_inter_filtrado=ifft(filtro_inter).real #Se devuelve al dominio
 y1_filtrado=ifft(filtro).real #Se devuelve al dominio
 
 
+###Duodecima parte###
+ax[1].plot(x1, y1_filtrado)
+ax[1].plot(x2linspace, y_inter_filtrado[0,:])
+ax[1].plot(x2linspace, y_inter_filtrado[1,:])
+ax[1].set_ylabel('Filtro a 500 Hz')
+ax[1].legend(['o','i2','i3'])
+ax[0].legend(['o','i2','i3'])
 
+fig.savefig('GarzonCamilo_2Filtros.pdf') #Se grafican las señales a 500 Hz
