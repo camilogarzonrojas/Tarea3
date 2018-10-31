@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from numpy import linalg as LA
+from numpy import linalg
 
 ###Primera parte###
 
@@ -21,4 +21,7 @@ Cov=np.matmul(delta.T,delta)/(len(delta)-1)
 
 print(Cov, '\n'*3, np.cov(mediciones.T))
 
-##
+###Tercera Parte###
+EIG=linalg.eig(Cov)
+print("Autovalores ", EIG[0])
+print("Autovectores (Cada Columna)", EIG[1], "\n") #Se calculan los autovalores y los autovectores y se imprimen en pantalla
