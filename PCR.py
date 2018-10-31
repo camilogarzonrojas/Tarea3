@@ -20,3 +20,5 @@ delta=mediciones-np.mean(mediciones,0) #Se le resta a cada columna el promedio d
 Cov = np.matmul(delta.T,delta)/(len(delta)-1)
 
 print(Cov, '\n'*3, np.cov(mediciones.T))
+
+##
