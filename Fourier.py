@@ -55,6 +55,8 @@ ax.set_xlabel(['Espectro de frecuencias'])
 ax.set_ylabel(['Modulo'])
 fig.savefig('GarzonCamilo_TF.pdf')
 
+
+
 ###Quinta parte###
 #Se encuentran los indices de los dos primeros picos
 i_max = np.argmax(modulo)
@@ -65,3 +67,19 @@ i_max2=np.argmax(copia)
 copia[i_max2]=0
 i_max2=np.argmax(copia)
 print("La segunda frecuencia principal se da en ", abs(frecuencias[i_max2]))
+
+
+
+###Sexta parte###
+filtro=real+1j*imag #Se filtra la senal
+
+for i in range(len(frecuencias)):
+    if np.abs(frecuencias[i])>1000: #Si la frecuencia es mayor a 1000
+        filtro[i] = filtro[i]/10 #Se disminuye la intensidad
+
+y1_filtrado=ifft(filtro).real #Se devuelve al dominio del tiempo
+
+fig,ax=plt.subplots()
+ax.plot(x1, y1_filtrado)
+ax.set_xlabel(['tiempo'])
+fig.savefig('GarzonCamilo_filtrada.pdf') #Se hace la grafica
