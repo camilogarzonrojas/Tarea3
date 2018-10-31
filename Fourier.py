@@ -83,3 +83,7 @@ fig,ax=plt.subplots()
 ax.plot(x1, y1_filtrado)
 ax.set_xlabel(['tiempo'])
 fig.savefig('GarzonCamilo_filtrada.pdf') #Se hace la grafica
+
+
+###Septima parte###
+print("Los tres primeros deltas de tiempo de los datos incompletos son ", x2[1:4]-x2[0:3], ". Como estos valores no son constantes, por la definicion de la DFT, no se puede hacer la trasnformada de Fourier discreta")
