@@ -87,3 +87,22 @@ fig.savefig('GarzonCamilo_filtrada.pdf') #Se hace la grafica
 
 ###Septima parte###
 print("Los tres primeros deltas de tiempo de los datos incompletos son ", x2[1:4]-x2[0:3], ". Como estos valores no son constantes, por la definicion de la DFT, no se puede hacer la trasnformada de Fourier discreta")
+
+
+###Octava parte###
+x2linspace=np.linspace(0.00039063, 0.02851562, 512) #Este es el x para hacer interpolacion
+
+
+y2interpolado=[interp1d(x2,y2,'cuadratica')(x2linspace), interp1d(x2,y2,'cubica')(x2linspace)] #Se interpolan con splines cubicos y cuadraticos
+
+
+mq, fq, rq, iq = fourier(y2interpolado[0])
+mc, fc, rc, ic = fourier(y2interpolado[1]) #Se calculan las variables de Fourier y se guardan en las listas 
+
+modulo_inter=[mq,mc]
+fase_inter=[fq,fc]
+real_inter=[rq,rc]
+imag_inter=[iq,ic]
+
+
+frecuencias_interpolacion=ff_frecuencias( 1.0/(x2linspace[1]-x2linspace[0])*(1.0/2.0), int(len(x2linspace)/2) ) #Se calculan las frecuencias
