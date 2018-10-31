@@ -39,3 +39,18 @@ modulo, fase, real, imag=fourier(y1)
 frecuencias=ff_frecuencias(1.0/(x1[1]-x1[0])*(1.0/2.0), int(len(x1)/2))
 
 
+###Grafica de la segunda parte###
+fig, ax=plt.subplots()
+ax.plot(x1, y1, c='black')
+ax.set_xlabel(['x'])
+ax.set_ylabel(['y'])
+fig.savefig('GarzonCamilo_signal.pdf')
+
+
+
+###Cuarta parte###
+fig, ax=plt.subplots()
+ax.plot(frecuencias, modulo)
+ax.set_xlabel(['Espectro de frecuencias'])
+ax.set_ylabel(['Modulo'])
+fig.savefig('GarzonCamilo_TF.pdf')
