@@ -25,3 +25,48 @@ print(Cov, '\n'*3, np.cov(mediciones.T))
 EIG=linalg.eig(Cov)
 print("Autovalores ", EIG[0])
 print("Autovectores (Cada Columna)", EIG[1], "\n") #Se calculan los autovalores y los autovectores y se imprimen en pantalla
+
+###Cuarta parte###
+#SE ordenan los datos para extraer las componenetes principales
+n=len(Cov)
+indiceCP1=0 #Este es el indice de la primer componente principal
+for i in range(n):
+    if EIG[0][i] > EIG[0][indiceCP1]:
+        indiceCP1 = i
+        
+indiceCP2 = 1 #Este el el indice de la segunda componente principal
+for i in range(n):
+    if EIG[0][i] > EIG[0][indiceCP2] and EIG[0][i] < EIG[0][indiceCP1]: #Se establece la condicion de quesea mayor a los otros y menor que la componente 1
+        indiceCP2 = i
+
+# Se extraen los autovectores de los autovalores mas grandes
+vector_cp1=EIG[1][:,indiceCP1]
+vector_cp2=EIG[1][:,indiceCP2]
+
+print("Componente principal 1 ", vector_cp1)
+print("Componente principal 2 ", vector_cp2)
+print("Segun el componente principal 1, la variable mas importante es la columna", 2+np.argmax(np.abs(vector_cp1)), "del archivo de texto")
+print("Segun el componente principal 2, la variable mas importante es la columna", 2+np.argmax(np.abs(vector_cp2)), "del archivo de texto")
+
+
+###Cuarta parte###
+#SE ordenan los datos para extraer las componenetes principales
+n=len(Cov)
+indiceCP1=0 #Este es el indice de la primer componente principal
+for i in range(n):
+    if EIG[0][i] > EIG[0][indiceCP1]:
+        indiceCP1 = i
+        
+indiceCP2 = 1 #Este el el indice de la segunda componente principal
+for i in range(n):
+    if EIG[0][i] > EIG[0][indiceCP2] and EIG[0][i] < EIG[0][indiceCP1]: #Se establece la condicion de quesea mayor a los otros y menor que la componente 1
+        indiceCP2 = i
+
+# Se extraen los autovectores de los autovalores mas grandes
+vector_cp1=EIG[1][:,indiceCP1]
+vector_cp2=EIG[1][:,indiceCP2]
+
+print("Componente principal 1 ", vector_cp1)
+print("Componente principal 2 ", vector_cp2)
+print("Segun el componente principal 1, la variable mas importante es la columna", 2+np.argmax(np.abs(vector_cp1)), "del archivo de texto")
+print("Segun el componente principal 2, la variable mas importante es la columna", 2+np.argmax(np.abs(vector_cp2)), "del archivo de texto")
