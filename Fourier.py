@@ -119,3 +119,39 @@ ax[0].set_xlabel(['Senal base'])
 ax[0].set_xlabel(['Interpolacion cuadrada'])
 ax[0].set_xlabel(['Interpolacion cubica'])
 fig.savefig('GarzonCamilo_TF_interpola.pdf') #Se grafican los tres espectros
+
+
+###Decima parte###
+
+
+###Undecima parte###
+filtro_inter=np.array(real_inter)+1j*np.array(imag_inter) #Se filtra la senal
+
+for i in range(len(frecuencias_interpolacion)):
+    if np.abs(frecuencias_interpolacion[i])>1000: #Si la frecuencia es mayor a 1000
+        filtro_inter[:,i]=filtro_inter[:,i]/10 #Se disminuye la intensidad
+        
+y_inter_filtrado=ifft(filtro_inter).real #Se devuelve al dominio
+
+
+fig,ax=plt.subplots(2,1, figsize=(8,8))
+ax[0].plot(x1, y1_filtrado)
+ax[0].plot(x2linspace, y_inter_filtrado[0,:])
+ax[0].plot(x2linspace, y_inter_filtrado[1,:])
+ax[0].set_ylabel('Filtro a 1000 Hz') #Se grafican las señales a 1000 Hz y haer hecho transformada inversa
+
+
+
+filtro_inter=np.array(real_inter)+1j*np.array(imag_inter)
+filtro=real+1j*imag   #Se filtra la senal
+
+for i in range(len(frecuencias_interpolacion)):
+    if np.abs(frecuencias_interpolacion[i])>500: #Si la frecuencia es mayor a 500
+        filtro_inter[:,i]=filtro_inter[:,i]/10 #Se disminuye la intensidad
+        filtro[i]=filtro[i]/10 #Se disminuye la intensidad
+        
+y_inter_filtrado=ifft(filtro_inter).real #Se devuelve al dominio
+y1_filtrado=ifft(filtro).real #Se devuelve al dominio
+
+
+
