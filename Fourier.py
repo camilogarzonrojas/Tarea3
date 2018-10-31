@@ -106,3 +106,16 @@ imag_inter=[iq,ic]
 
 
 frecuencias_interpolacion=ff_frecuencias( 1.0/(x2linspace[1]-x2linspace[0])*(1.0/2.0), int(len(x2linspace)/2) ) #Se calculan las frecuencias
+
+
+###Novena parte###
+fig,ax=plt.subplots(3,1,figsize=(8,8))
+ax[0].plot(frecuencias,modulo)
+ax[1].plot(frecuencias_interpolacion,modulo_inter[0])
+ax[2].plot(frecuencias_interpolacion,modulo_inter[1])
+
+ax[2].set_xlabel(['Espectro de frecuencias'])
+ax[0].set_xlabel(['Senal base'])
+ax[0].set_xlabel(['Interpolacion cuadrada'])
+ax[0].set_xlabel(['Interpolacion cubica'])
+fig.savefig('GarzonCamilo_TF_interpola.pdf') #Se grafican los tres espectros
