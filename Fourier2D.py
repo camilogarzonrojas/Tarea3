@@ -34,3 +34,12 @@ for i in range(m):
             Filtrado[i,j]=0
         if (240<i and i<250) and (220<j and j<240):
             Filtrado[i,j]=0   #Se dejan en cero las amplitudes de las frecuencias que generan el ruido periodico haciendo un doble recorrido
+
+
+###Cuarta parte###
+fig,ax=plt.subplots()
+ax.imshow(np.log(np.abs(Filtrado)))
+ax.set_xlabel(['x'])
+ax.set_ylabel(['y'])
+fig.savefig('GarzonCamilo_FT2D_filtrada.pdf') #Se grafica la transformada de Fourier en escala lognorm
+
