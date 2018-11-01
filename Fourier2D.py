@@ -43,3 +43,13 @@ ax.set_xlabel(['x'])
 ax.set_ylabel(['y'])
 fig.savefig('GarzonCamilo_FT2D_filtrada.pdf') #Se grafica la transformada de Fourier en escala lognorm
 
+
+###Quinta parte###
+N=ifft2(Filtrado).real
+fig,ax=plt.subplots()
+plt.set_cmap('gray')
+ax.imshow(N)
+ax.set_xlabel(['x'])
+ax.set_ylabel(['y'])
+fig.savefig('GarzonCamilo_Imagen_filtrada.pdf') #Se grafica la imagen filtrada sin el ruido periodico
+
